@@ -39,11 +39,36 @@ const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
 next.addEventListener('click', function(){
-    //verifico l'elemento attivo (itemActive)
-    //incremento il suo valore di 1
-    //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
-    //stessa cosa per i cerchi
-});
+     //verifico l'elemento attivo (itemActive)
+     const lastActiveItem = items[itemActive]
+     const lastCircleActive = circles[itemActive]
+ 
+     //incremento il suo valore di 1
+ 
+     //se itemActive è a 4 => itemActive = 0
+     //altrimenti => itemActive = itemActive + 1
+     if ( itemActive == ( items.length - 1 ) )
+     {
+         itemActive = 0;
+     }
+     else
+     {
+         itemActive = itemActive + 1;
+     }
+     console.log(itemActive)
+ 
+     const activeItem = items[itemActive]
+     const circleItem = circles[itemActive]
+ 
+     //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
+     activeItem.classList.add('active')
+     lastActiveItem.classList.remove('active')
+ 
+     //stessa cosa per i cerchi
+     circleItem.classList.add('active')
+     lastCircleActive.classList.remove('active')
+ 
+ });
 
 prev.addEventListener('click', function(){
     //verifico l'elemento attivo (itemActive)
